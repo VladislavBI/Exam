@@ -1,0 +1,10 @@
+﻿<Window x:Class="Exam_VSTBuh.ProgStart.WaitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WaitWindow" Height="134" Width="384">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="42,10,0,0" TextWrapping="Wrap" Text="База данных загружается" VerticalAlignment="Top" Width="285" TextAlignment="Center"/>
+        <ProgressBar HorizontalAlignment="Left" Height="21" Margin="42,63,0,0" VerticalAlignment="Top" Width="285" IsIndeterminate="True"/>
+
+    </Grid>
+</Window>
