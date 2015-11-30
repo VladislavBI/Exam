@@ -1,0 +1,24 @@
+﻿<Window x:Class="Exam_VSTBuh.MainWindow_Sale_Report.NewSale"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Новая продажа" Height="345" Width="414">
+    <Grid>
+        <!--1 строка: продавец и дата-->
+        <TextBlock HorizontalAlignment="Left" Margin="25,4,0,0" TextWrapping="Wrap" Text="Продавец" VerticalAlignment="Top" Height="22" Width="64"/>
+        <ComboBox HorizontalAlignment="Left" Margin="94,4,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="CurDateTBlock" HorizontalAlignment="Left" Margin="249,4,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="131" Height="22"/>
+
+        <Button Content="Откуда" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Откуда" HorizontalAlignment="Left" Margin="222,40,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="124,40,0,0" TextWrapping="Wrap" Text="Склад" VerticalAlignment="Top" Height="20" Width="64"/>
+        <TextBlock HorizontalAlignment="Left" Margin="316,40,0,0" TextWrapping="Wrap" Text="137" VerticalAlignment="Top" Height="20" Width="64"/>
+        <RadioButton Content="Перемещение" HorizontalAlignment="Left" Margin="25,82,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Долг" HorizontalAlignment="Left" Margin="169,82,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Интернет" HorizontalAlignment="Left" Margin="266,82,0,0" VerticalAlignment="Top"/>
+        <DataGrid HorizontalAlignment="Left" Margin="0,141,0,0" VerticalAlignment="Top" Height="173" Width="406"/>
+        <TextBlock HorizontalAlignment="Left" Margin="25,114,0,0" TextWrapping="Wrap" Text="Товар" VerticalAlignment="Top" Width="48" Height="22"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="94,112,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Создать" HorizontalAlignment="Left" Margin="262,112,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
