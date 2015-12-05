@@ -1,11 +1,11 @@
 ﻿<Window x:Class="Exam_VSTBuh.MainWindow_Sale_Report.NewSale"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Новая продажа" Height="345" Width="414">
+        Title="Новая продажа" Height="345" Width="414" Loaded="Window_Loaded">
     <Grid>
         <!--1 строка: продавец и дата-->
         <TextBlock HorizontalAlignment="Left" Margin="25,4,0,0" TextWrapping="Wrap" Text="Продавец" VerticalAlignment="Top" Height="22" Width="64"/>
-        <ComboBox HorizontalAlignment="Left" Margin="94,4,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cBoxSellerList" HorizontalAlignment="Left" Margin="94,4,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBlock Name="CurDateTBlock" HorizontalAlignment="Left" Margin="249,4,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="131" Height="22"/>
 
         <Button Content="Откуда" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" Width="75"/>

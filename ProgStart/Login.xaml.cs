@@ -33,17 +33,19 @@ namespace Exam_VSTBuh.ProgStart
             conStringBuilder.InitialCatalog = "VST";
             conStringBuilder.UserID = UsernameTBox.Text;
             conStringBuilder.Password = PasswordTBox.Text;
+            conStringBuilder.Pooling = true;
 
             using (SqlConnection con = new SqlConnection(conStringBuilder.ConnectionString))
             {
                 try
                 {
                     con.Open();
-                    WaitWindow ww = new WaitWindow();
-                    ww.Show();
+                    MainWindow ww = new MainWindow();
                     this.Close();
+                    ww.Show();
+                    
                 }
-                catch (SqlException exc)
+                catch (SqlException)
                 {
                     MessageBox.Show("Пользователь " + conStringBuilder.UserID + " несуществует или вы ввели невверный пароль");
                 }

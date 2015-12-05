@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace Exam_VSTBuh.MainWindow_Sale_Report
 {
@@ -27,5 +28,29 @@ namespace Exam_VSTBuh.MainWindow_Sale_Report
             DateTime curDate = DateTime.Today;
             CurDateTBlock.Text = curDate.Day.ToString() + "." + curDate.Month.ToString() + "." + curDate.Year.ToString();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SqlConnectionStringBuilder stringCon = new SqlConnectionStringBuilder();
+            stringCon.DataSource = "vladp";
+            stringCon.InitialCatalog = "VST";
+            stringCon.IntegratedSecurity = true;
+
+            using (SqlConnection sqlCon = new SqlConnection(stringCon.ConnectionString)) 
+                {
+                    
+                    SqlCommand sqlCom = new SqlCommand("SELECT Name from Sellers", sqlCon);
+                    SqlDataReader reader = sqlCom.ExecuteReader();
+
+                    while (reader.Read()) 
+                        {
+                            cBoxSellerList.Items.Add(reader[0]);
+                        }
+                }
+            
+
+        }
+
+
     }
 }

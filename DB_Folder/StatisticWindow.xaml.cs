@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,21 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Exam_VSTBuh.ProgStart
+namespace Exam_VSTBuh.DB_Folder
 {
     /// <summary>
-    /// Interaction logic for WaitWindow.xaml
+    /// Interaction logic for StatisticWindow.xaml
     /// </summary>
-    public partial class WaitWindow : Window
+    public partial class StatisticWindow : Window
     {
-        public WaitWindow()
+        public StatisticWindow()
         {
             InitializeComponent();
-            
-            Thread.Sleep(2000);
-            MainWindow mw = new MainWindow();
-            mw.Show();
-            
         }
     }
 }
