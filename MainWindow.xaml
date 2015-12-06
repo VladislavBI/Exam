@@ -9,7 +9,21 @@
                 <MenuItem Header="Выход" />
             </MenuItem>
             <MenuItem Header="Edit" ></MenuItem>
-            <MenuItem Header="View" ></MenuItem>
+            <MenuItem Header="Справочник" >
+                <MenuItem Header="Продавцы" />
+                <MenuItem Header="Товары" >
+                    <MenuItem Header="Категории" />
+                    <MenuItem Header="Марки" />
+                    <MenuItem Header="Наименования" />
+                </MenuItem>
+                <MenuItem Header="Склады" />
+                
+            </MenuItem>
+            <MenuItem Header="Складские операции" >
+                <MenuItem Header="Приход" />
+                <MenuItem Header="Расход" />
+                <MenuItem Header="Остатки" />
+            </MenuItem>
         </Menu>
         <!--Приветствие-->
         <TextBlock HorizontalAlignment="Left" Margin="101,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="313" FontSize="30" TextAlignment="Center"><Run Language="ru-ru" Text="Добро пожаловать"/></TextBlock>

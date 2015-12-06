@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -23,11 +24,29 @@ namespace Exam_VSTBuh.ProgStart
         public WaitWindow()
         {
             InitializeComponent();
+
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += worker_DoWork;
+            worker.RunWorkerCompleted += worker_RunWorkerCompleted;
+            worker.WorkerReportsProgress = true;
+            worker.RunWorkerAsync();
             
-            Thread.Sleep(2000);
+            
+        }
+
+        void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
             MainWindow mw = new MainWindow();
+            this.Close();
             mw.Show();
-            
+        }
+
+       
+
+        void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < 5; i++)
+                Thread.Sleep(400);
         }
     }
 }

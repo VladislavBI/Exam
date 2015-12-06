@@ -36,17 +36,18 @@ namespace Exam_VSTBuh.MainWindow_Sale_Report
             stringCon.InitialCatalog = "VST";
             stringCon.IntegratedSecurity = true;
 
-            using (SqlConnection sqlCon = new SqlConnection(stringCon.ConnectionString)) 
-                {
-                    
-                    SqlCommand sqlCom = new SqlCommand("SELECT Name from Sellers", sqlCon);
-                    SqlDataReader reader = sqlCom.ExecuteReader();
+            SqlConnection sqlCon = new SqlConnection(stringCon.ConnectionString);
+                
+            sqlCon.Open();
+            SqlCommand sqlCom = new SqlCommand("SELECT Name from Sellers", sqlCon);
+            SqlDataReader reader = sqlCom.ExecuteReader();
 
-                    while (reader.Read()) 
-                        {
+            while (reader.Read()) 
+               {
                             cBoxSellerList.Items.Add(reader[0]);
-                        }
-                }
+               }
+                
+            sqlCon.Close();
             
 
         }

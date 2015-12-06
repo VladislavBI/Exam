@@ -1,8 +1,15 @@
 ﻿<Window x:Class="Exam_VSTBuh.DB_Folder.StatisticWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="StatisticWindow" Height="300" Width="300">
+        Title="StatisticWindow" Height="409" Width="445">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="ListDataGrid"/>
+        <TextBlock Name="PropertynameTextBlock" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+
     </Grid>
 </Window>

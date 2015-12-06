@@ -22,6 +22,7 @@ namespace Exam_VSTBuh.DB_Folder
         public StatisticWindow()
         {
             InitializeComponent();
+            //передача в textblock имени искомой переменной. в таблицу список переменных -запрос с параметром
         }
     }
 }

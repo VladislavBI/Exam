@@ -35,12 +35,12 @@ namespace Exam_VSTBuh.ProgStart
             conStringBuilder.Password = PasswordTBox.Text;
             conStringBuilder.Pooling = true;
 
-            using (SqlConnection con = new SqlConnection(conStringBuilder.ConnectionString))
-            {
+                App.con = new SqlConnection(conStringBuilder.ConnectionString);//выведен как отдельная переменная в APP.xaml
+            
                 try
                 {
-                    con.Open();
-                    MainWindow ww = new MainWindow();
+                    App.con.Open();
+                    WaitWindow ww = new WaitWindow();
                     this.Close();
                     ww.Show();
                     
@@ -53,4 +53,4 @@ namespace Exam_VSTBuh.ProgStart
             }
         }
     }
-}
+
