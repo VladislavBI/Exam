@@ -1,15 +1,23 @@
 ﻿<Window x:Class="Exam_VSTBuh.DB_Folder.StatisticWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="StatisticWindow" Height="409" Width="445">
+         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" 
+        Title="StatisticWindow" Height="300" Width="300">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="50*"/>
-        </Grid.RowDefinitions>
-        <DataGrid Name="ListDataGrid"/>
-        <TextBlock Name="PropertynameTextBlock" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-
-
+        <wfi:WindowsFormsHost Grid.Row="1" Grid.Column="1">
+            <wf:DataGridView
+                    x:Name="dataGridView"
+                    AutoSizeRowsMode="AllCells" 
+                    AutoSizeColumnsMode="None" 
+                    ColumnHeadersVisible="True"
+                    ColumnHeadersHeight="50" 
+                    ForeColor="Black"
+                    Location="0, 0"
+                    MultiSelect="False"
+                    SelectionMode="FullRowSelect"    
+                    
+                />
+        </wfi:WindowsFormsHost>
     </Grid>
 </Window>

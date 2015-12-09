@@ -4,12 +4,16 @@
         Title="MainWindow" Height="350" Width="525">
 
     <Grid>
-        <Menu  Height="20" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="386*"/>
+        </Grid.ColumnDefinitions>
+        <Menu  Height="20" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="Файл">
                 <MenuItem Header="Выход" />
             </MenuItem>
             <MenuItem Header="Edit" ></MenuItem>
-            <MenuItem Header="Справочник" >
+            <MenuItem Header="Справочник" Click="MenuItem_Click" >
                 <MenuItem Header="Продавцы" />
                 <MenuItem Header="Товары" >
                     <MenuItem Header="Категории" />
@@ -17,7 +21,7 @@
                     <MenuItem Header="Наименования" />
                 </MenuItem>
                 <MenuItem Header="Склады" />
-                
+
             </MenuItem>
             <MenuItem Header="Складские операции" >
                 <MenuItem Header="Приход" />
@@ -26,23 +30,23 @@
             </MenuItem>
         </Menu>
         <!--Приветствие-->
-        <TextBlock HorizontalAlignment="Left" Margin="101,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="313" FontSize="30" TextAlignment="Center"><Run Language="ru-ru" Text="Добро пожаловать"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="101,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="313" FontSize="30" TextAlignment="Center" Grid.ColumnSpan="2"><Run Language="ru-ru" Text="Добро пожаловать"/></TextBlock>
         <!--Новый пользователь ! TODO -привязать к конкретному пользователю -->
-        <TextBlock HorizontalAlignment="Left" Margin="101,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="313" FontSize="20" TextAlignment="Center"><Run Language="ru-ru" Text="Пользователь"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="101,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="313" FontSize="20" TextAlignment="Center" Grid.ColumnSpan="2"><Run Language="ru-ru" Text="Пользователь"/></TextBlock>
 
         <!--Дата-->
-        <TextBlock HorizontalAlignment="Left" Margin="101,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="84" FontSize="20" TextAlignment="Left"><Run Language="ru-ru" Text="Сегодня:"/></TextBlock>
-        <TextBlock x:Name="CurDateTblock" HorizontalAlignment="Left" Margin="262,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="152" FontSize="20" TextAlignment="Left" Text="//Текущ дата"/>
+        <TextBlock HorizontalAlignment="Left" Margin="101,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="84" FontSize="20" TextAlignment="Left" Grid.ColumnSpan="2"><Run Language="ru-ru" Text="Сегодня:"/></TextBlock>
+        <TextBlock x:Name="CurDateTblock" HorizontalAlignment="Left" Margin="131,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="152" FontSize="20" TextAlignment="Left" Text="//Текущ дата" Grid.Column="1"/>
         <!-- Курсы-->
-        <TextBlock HorizontalAlignment="Left" Margin="101,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="313" FontSize="20" TextAlignment="Center"><Run Language="ru-ru" Text="Курсы"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="101,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="74" FontSize="20" TextAlignment="Left"><Run Language="ru-ru" Text="Доллар:"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="280,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="52" FontSize="20" TextAlignment="Left"><Run Language="ru-ru" Text="Евро:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="101,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="313" FontSize="20" TextAlignment="Center" Grid.ColumnSpan="2"><Run Language="ru-ru" Text="Курсы"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="101,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="74" FontSize="20" TextAlignment="Left" Grid.ColumnSpan="2"><Run Language="ru-ru" Text="Доллар:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="149,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="52" FontSize="20" TextAlignment="Left" Grid.Column="1"><Run Language="ru-ru" Text="Евро:"/></TextBlock>
         <!-- Курсы ввод-->
-        <TextBox x:Name="DollarCurTBox" HorizontalAlignment="Left" Margin="193,201,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="64" TextAlignment="Center" FontSize="20" LostFocus="CheckWritten"/>
-        <TextBox x:Name="EuroCurTBox" HorizontalAlignment="Left" Margin="355,201,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="59" TextAlignment="Center" FontSize="20" LostFocus="CheckWritten"/>
+        <TextBox x:Name="DollarCurTBox" HorizontalAlignment="Left" Margin="62,201,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="64" TextAlignment="Center" FontSize="20" LostFocus="CheckWritten" Grid.Column="1"/>
+        <TextBox x:Name="EuroCurTBox" HorizontalAlignment="Left" Margin="224,201,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="59" TextAlignment="Center" FontSize="20" LostFocus="CheckWritten" Grid.Column="1"/>
         <!-- Начало операций-->
-        <Button x:Name="NewSaleButton" Content="Новая продажа" HorizontalAlignment="Left" Margin="101,256,0,0" VerticalAlignment="Top" Width="122" Height="35" Background="{x:Null}" Click="CreateNewSale"/>
-        <Button x:Name="ReportMakerButton" Content="Отчет" HorizontalAlignment="Left" Margin="292,256,0,0" VerticalAlignment="Top" Width="122" Height="35" Background="{x:Null}" Click="CreateReport"/>
+        <Button x:Name="NewSaleButton" Content="Новая продажа" HorizontalAlignment="Left" Margin="101,256,0,0" VerticalAlignment="Top" Width="122" Height="35" Background="{x:Null}" Click="CreateNewSale" Grid.ColumnSpan="2"/>
+        <Button x:Name="ReportMakerButton" Content="Отчет" HorizontalAlignment="Left" Margin="161,256,0,0" VerticalAlignment="Top" Width="122" Height="35" Background="{x:Null}" Click="CreateReport" Grid.Column="1"/>
 
 
     </Grid>

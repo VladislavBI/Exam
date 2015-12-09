@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace Exam_VSTBuh.DB_Folder
 {
@@ -22,7 +24,19 @@ namespace Exam_VSTBuh.DB_Folder
         public StatisticWindow()
         {
             InitializeComponent();
-            //передача в textblock имени искомой переменной. в таблицу список переменных -запрос с параметром
+
+            DataSet ds = new DataSet();
+            SqlConnectionStringBuilder connectStr = new SqlConnectionStringBuilder();
+            connectStr.DataSource = "vladp";
+            connectStr.InitialCatalog = "VST";
+            connectStr.IntegratedSecurity = true;
+            
+            string commandStr=@"SELECT * FROM Sellers";
+
+            SqlDataAdapter adapter = new SqlDataAdapter(commandStr, connectStr.ConnectionString);
+            adapter.Fill(ds);
+
+            dataGridView.DataSource = ds.Tables[0];
         }
     }
 }

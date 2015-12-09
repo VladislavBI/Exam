@@ -59,5 +59,11 @@ namespace Exam_VSTBuh
            
             temp.Text = wrote;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow();
+            sw.Show();
+        }
     }
 }
