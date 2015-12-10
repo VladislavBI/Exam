@@ -21,7 +21,7 @@ namespace Exam_VSTBuh.DB_Folder
     /// </summary>
     public partial class StatisticWindow : Window
     {
-        public StatisticWindow()
+        public StatisticWindow(string Source)
         {
             InitializeComponent();
 
@@ -30,12 +30,13 @@ namespace Exam_VSTBuh.DB_Folder
             connectStr.DataSource = "vladp";
             connectStr.InitialCatalog = "VST";
             connectStr.IntegratedSecurity = true;
+          
+            string commandStr=String.Format("SELECT * FROM {0}", Source);
+           
             
-            string commandStr=@"SELECT * FROM Sellers";
-
             SqlDataAdapter adapter = new SqlDataAdapter(commandStr, connectStr.ConnectionString);
             adapter.Fill(ds);
-
+           
             dataGridView.DataSource = ds.Tables[0];
         }
     }

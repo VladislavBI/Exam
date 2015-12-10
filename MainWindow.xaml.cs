@@ -62,7 +62,20 @@ namespace Exam_VSTBuh
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow();
+            DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow("Sellers");
+            sw.Show();
+        }
+
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow("Good");
+            sw.Show();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow("Warehouses");
             sw.Show();
         }
     }

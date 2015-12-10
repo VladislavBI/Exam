@@ -13,14 +13,11 @@
                 <MenuItem Header="Выход" />
             </MenuItem>
             <MenuItem Header="Edit" ></MenuItem>
-            <MenuItem Header="Справочник" Click="MenuItem_Click" >
-                <MenuItem Header="Продавцы" />
-                <MenuItem Header="Товары" >
-                    <MenuItem Header="Категории" />
-                    <MenuItem Header="Марки" />
-                    <MenuItem Header="Наименования" />
+            <MenuItem Header="Справочник"   >
+                <MenuItem Header="Продавцы" Click="MenuItem_Click"/>
+                <MenuItem Header="Товары" Click="MenuItem_Click_3" >
                 </MenuItem>
-                <MenuItem Header="Склады" />
+                <MenuItem Header="Склады" Click="MenuItem_Click_1" />
 
             </MenuItem>
             <MenuItem Header="Складские операции" >

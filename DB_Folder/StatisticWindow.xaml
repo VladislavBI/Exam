@@ -3,13 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
     xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" 
-        Title="StatisticWindow" Height="300" Width="300">
+        Title="StatisticWindow" Height="346.5" Width="496.5">
     <Grid>
-        <wfi:WindowsFormsHost Grid.Row="1" Grid.Column="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <wfi:WindowsFormsHost Grid.Row="0" Grid.Column="0">
             <wf:DataGridView
+                    
                     x:Name="dataGridView"
                     AutoSizeRowsMode="AllCells" 
-                    AutoSizeColumnsMode="None" 
+                    AutoSizeColumnsMode="Fill" 
                     ColumnHeadersVisible="True"
                     ColumnHeadersHeight="50" 
                     ForeColor="Black"
