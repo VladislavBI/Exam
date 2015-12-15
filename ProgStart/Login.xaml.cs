@@ -32,7 +32,7 @@ namespace Exam_VSTBuh.ProgStart
             conStringBuilder.DataSource = @"vladp";
             conStringBuilder.InitialCatalog = "VST";
             conStringBuilder.UserID = UsernameTBox.Text;
-            conStringBuilder.Password = PasswordTBox.Text;
+            conStringBuilder.Password = PasswordTBox.Password;
             conStringBuilder.Pooling = true;
 
                 App.con = new SqlConnection(conStringBuilder.ConnectionString);//выведен как отдельная переменная в APP.xaml

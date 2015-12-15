@@ -3,26 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
     xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" 
-        Title="StatisticWindow" Height="346.5" Width="496.5">
-    <Grid>
+        Title="StatisticWindow" Height="454.5" Width="644">
+    <Grid Margin="0,0,2,1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="2*"/>
+
         </Grid.ColumnDefinitions>
-        <wfi:WindowsFormsHost Grid.Row="0" Grid.Column="0">
-            <wf:DataGridView
-                    
-                    x:Name="dataGridView"
-                    AutoSizeRowsMode="AllCells" 
-                    AutoSizeColumnsMode="Fill" 
-                    ColumnHeadersVisible="True"
-                    ColumnHeadersHeight="50" 
-                    ForeColor="Black"
-                    Location="0, 0"
-                    MultiSelect="False"
-                    SelectionMode="FullRowSelect"    
-                    
-                />
-        </wfi:WindowsFormsHost>
+        <Button x:Name="DelBut" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
+        <Button x:Name="ChangeBut" Content="Изменить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
+        <Button x:Name="AddBut" Content="Добавить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
+        <DataGrid Grid.Column="0" Name="dataGridView" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False"/>
+        <Button x:Name="PrevBut" Content="Назад" Grid.Column="1" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15" Visibility="Collapsed"/>
     </Grid>
 </Window>

@@ -69,7 +69,7 @@ namespace Exam_VSTBuh
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
-            DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow("Good");
+            DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow("Category");
             sw.Show();
         }
 

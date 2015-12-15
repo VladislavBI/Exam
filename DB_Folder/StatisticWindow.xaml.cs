@@ -30,14 +30,50 @@ namespace Exam_VSTBuh.DB_Folder
             connectStr.DataSource = "vladp";
             connectStr.InitialCatalog = "VST";
             connectStr.IntegratedSecurity = true;
-          
-            string commandStr=String.Format("SELECT * FROM {0}", Source);
+
+            
+            SqlDataAdapter adapter=ChooseTable(connectStr, Source);
+            
            
             
-            SqlDataAdapter adapter = new SqlDataAdapter(commandStr, connectStr.ConnectionString);
+            
             adapter.Fill(ds);
            
-            dataGridView.DataSource = ds.Tables[0];
+            dataGridView.ItemsSource = ds.Tables[0].DefaultView;
+        }
+
+        SqlDataAdapter ChooseTable(SqlConnectionStringBuilder conStr, string tableName) 
+        {
+            SqlDataAdapter ad;
+            switch (tableName) 
+            { 
+                case "Sellers":
+                    return ad= new SqlDataAdapter(
+                        string.Format("SELECT Name FROM {0}",tableName), conStr.ConnectionString);
+                    break;
+
+                case "Warehouses":
+                    return  ad= new SqlDataAdapter(
+                        string.Format("SELECT Name, Supplier_Cons FROM {0}",tableName), conStr.ConnectionString);
+                    break;
+
+                case "Category":
+                    this.PrevBut.Visibility=Visibility.Visible;
+                    this.dataGridView.MouseDoubleClick+=dataGridView_MouseDoubleClick;
+                    return ad= new SqlDataAdapter(string.Format("SELECT Name FROM {0}",tableName), conStr.ConnectionString);
+                    break;
+
+                default:
+                    return ad= new SqlDataAdapter(
+                        string.Format("SELECT Name FROM {0}",tableName), conStr.ConnectionString);
+                    break;
+            }
+
+        }
+
+        void dataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
