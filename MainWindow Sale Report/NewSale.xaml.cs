@@ -52,6 +52,12 @@ namespace Exam_VSTBuh.MainWindow_Sale_Report
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow("Warehouses");
+            sw.Show();
+        }
+
 
     }
 }

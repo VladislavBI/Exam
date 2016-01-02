@@ -6,10 +6,10 @@
         <!--1 строка: продавец и дата-->
         <TextBlock HorizontalAlignment="Left" Margin="25,4,0,0" TextWrapping="Wrap" Text="Продавец" VerticalAlignment="Top" Height="22" Width="64"/>
         <ComboBox x:Name="cBoxSellerList" HorizontalAlignment="Left" Margin="94,4,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Name="CurDateTBlock" HorizontalAlignment="Left" Margin="249,4,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="131" Height="22"/>
+        <TextBlock Name="CurDateTBlock" HorizontalAlignment="Left" Margin="249,4,0,0" TextWrapping="Wrap" Text="Дата" VerticalAlignment="Top" Width="131" Height="22"/>
 
-        <Button Content="Откуда" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Откуда" HorizontalAlignment="Left" Margin="222,40,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Откуда" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Куда" HorizontalAlignment="Left" Margin="222,40,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock HorizontalAlignment="Left" Margin="124,40,0,0" TextWrapping="Wrap" Text="Склад" VerticalAlignment="Top" Height="20" Width="64"/>
         <TextBlock HorizontalAlignment="Left" Margin="316,40,0,0" TextWrapping="Wrap" Text="137" VerticalAlignment="Top" Height="20" Width="64"/>
         <RadioButton Content="Перемещение" HorizontalAlignment="Left" Margin="25,82,0,0" VerticalAlignment="Top"/>

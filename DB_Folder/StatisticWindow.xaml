@@ -13,7 +13,7 @@
         <Button x:Name="DelBut" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
         <Button x:Name="ChangeBut" Content="Изменить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
         <Button x:Name="AddBut" Content="Добавить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
-        <DataGrid Grid.Column="0" Name="dataGridView" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False"/>
-        <Button x:Name="PrevBut" Content="Назад" Grid.Column="1" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15" Visibility="Collapsed"/>
+        <DataGrid Grid.Column="0" Name="dataGridView" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" MouseDoubleClick="dataGridView_MouseDoubleClick_1"/>
+        <Button x:Name="PrevBut" Content="Назад" Grid.Column="1" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15" Visibility="Collapsed" Click="PrevBut_Click"/>
     </Grid>
 </Window>
