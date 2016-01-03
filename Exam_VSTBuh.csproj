@@ -86,6 +86,7 @@
     <Compile Include="DB_Folder\StatisticWindow.xaml.cs">
       <DependentUpon>StatisticWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DelegatesData.cs" />
     <Compile Include="MainWindow Sale Report\NewReport.xaml.cs">
       <DependentUpon>NewReport.xaml</DependentUpon>
     </Compile>

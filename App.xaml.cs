@@ -15,5 +15,6 @@ namespace Exam_VSTBuh
     public partial class App : Application
     {
         public static SqlConnection con;
+        public static DataSet addingDataSet;
     }
 }

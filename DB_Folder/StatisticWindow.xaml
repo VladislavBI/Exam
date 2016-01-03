@@ -3,17 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
     xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" 
-        Title="StatisticWindow" Height="454.5" Width="644">
+        Title="StatisticWindow" Height="663" Width="656" Name="statWindow">
     <Grid Margin="0,0,2,1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="2*"/>
 
         </Grid.ColumnDefinitions>
-        <Button x:Name="DelBut" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
-        <Button x:Name="ChangeBut" Content="Изменить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
-        <Button x:Name="AddBut" Content="Добавить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
-        <DataGrid Grid.Column="0" Name="dataGridView" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" MouseDoubleClick="dataGridView_MouseDoubleClick_1"/>
-        <Button x:Name="PrevBut" Content="Назад" Grid.Column="1" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15" Visibility="Collapsed" Click="PrevBut_Click"/>
+        <Button x:Name="DelBut" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
+        <Button x:Name="ChangeBut" Content="Изменить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
+        <Button x:Name="AddBut" Content="Добавить" Grid.Column="1" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.04,0.2" Height="54" FontSize="15"/>
+        <Grid Name="dataGridsGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <DataGrid Grid.Row="0" Name="dataGridView" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" MouseDoubleClick="dataGridView_MouseDoubleClick_1" Margin="0,0,0,0" AreRowDetailsFrozen="True" IsReadOnly="True"/>
+            <DataGrid Grid.Row="1" Name="dataGridSelect" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" MouseDoubleClick="dataGridView_MouseDoubleClick_1" Margin="0,0,0,0" IsReadOnly="True"/>
+        </Grid>
+        <Button x:Name="PrevBut" Content="Назад" Grid.Column="1" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="75"  Height="54" FontSize="15" Visibility="Visible" Click="PrevBut_Click"/>
+        <Button x:Name="ButOK" Content="OK" Grid.Column="1" HorizontalAlignment="Left" Margin="10,567,0,0" VerticalAlignment="Top" Width="75"  Height="54" FontSize="15" Visibility="Visible" Click="ButOK_Click" />
     </Grid>
 </Window>
