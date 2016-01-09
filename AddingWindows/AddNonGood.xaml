@@ -1,0 +1,13 @@
+﻿<Window x:Class="Exam_VSTBuh.AddingWindows.AddNonGood"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddNonGood" Height="174" Width="255">
+    <Grid>
+        <TextBlock Name="TBlockGeneralInfo" Margin="0,10,0,0" TextWrapping="Wrap" Text="Добавить склад" VerticalAlignment="Top" Height="31" TextAlignment="Center" FontSize="20" />
+        <TextBlock Name="Имя"  HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Имя:" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Name="TBoxName" HorizontalAlignment="Left" Height="23" Margin="84,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153" FontSize="16"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="75" FontSize="16" Click="Button_Click"/>
+        <Button Content="Отмена" HorizontalAlignment="Left" Margin="162,94,0,0" VerticalAlignment="Top" Width="75" FontSize="16" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

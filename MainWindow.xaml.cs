@@ -78,5 +78,16 @@ namespace Exam_VSTBuh
             DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow("Warehouses");
             sw.Show();
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            DB_Folder.StatisticWindow sw = new DB_Folder.StatisticWindow("Brand");
+            sw.Show();
+        }
     }
 }

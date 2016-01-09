@@ -24,8 +24,10 @@ namespace Exam_VSTBuh.DB_Folder
         int goodLevel = -1; //категория/модель/марка -1 - не товар
         bool categorySel;//отображение товаров
         string catName;//имя категории - для модели
+        string brandName;//имя марки - для товара
         string tableName;//имя текущей таблицы
         string senderName=""; //доп инфа по отправителю (номер заказа/направление склада)
+       
         DataTable dataTableSelectedGoods = new DataTable();//выбранные товары - основа для заказа
         DataTable dtNormalSelectView = new DataTable();//нормальный вид выбранных товаров - в datagridselect 
         #region Constuctors
@@ -68,13 +70,20 @@ namespace Exam_VSTBuh.DB_Folder
         //создание новой таблицы
         void CreateNewTable(string Source) 
         {
+            tableName = Source;
+            NonGoodTableCreation();
+        }
+
+        //создание начальной не товарной (и категории)таблицы
+        void NonGoodTableCreation()
+        {
             DataSet ds = new DataSet();
             SqlConnectionStringBuilder connectStr = new SqlConnectionStringBuilder();
             connectStr.DataSource = "vladp";
             connectStr.InitialCatalog = "VST";
             connectStr.IntegratedSecurity = true;
 
-            SqlDataAdapter adapter = ChooseTable(connectStr, Source);
+            SqlDataAdapter adapter = ChooseTable(connectStr, tableName);
             adapter.Fill(ds);
 
             dataGridView.ItemsSource = ds.Tables[0].DefaultView;
@@ -108,6 +117,10 @@ namespace Exam_VSTBuh.DB_Folder
                     return ad = new SqlDataAdapter(string.Format("SELECT Name FROM {0}", tableName), conStr.ConnectionString);
                     break;
 
+                case "Brand":
+                    return ad = new SqlDataAdapter("SELECT Name FROM Brand", conStr.ConnectionString);
+                    break;
+
                 default:
                     return ad= new SqlDataAdapter(
                         string.Format("SELECT Name FROM {0}",tableName), conStr.ConnectionString);
@@ -117,9 +130,10 @@ namespace Exam_VSTBuh.DB_Folder
         }
 
 #endregion
-        //создание таблицы товара в зависимoсти от goodLevel
+        //создание таблицы товара в зависимoсти от goodLevel - имя таблицы и имя категории/марки
         void goodTableCreate(string tableName, string addInfo)
         {
+            this.tableName = tableName;
             //подключение
             DataSet ds = new DataSet();
             SqlConnectionStringBuilder connectStr = new SqlConnectionStringBuilder();
@@ -168,7 +182,7 @@ namespace Exam_VSTBuh.DB_Folder
                 cmd.Parameters.Add("@CatName", SqlDbType.NVarChar, 20).Value = catName;
                 cmd.Parameters.Add("@brName", SqlDbType.NVarChar, 20).Value = addInfo;
                 adapter = new SqlDataAdapter(cmd);
-
+                brandName = addInfo;
             }
             //передача данных в dataGridView
             try
@@ -186,7 +200,7 @@ namespace Exam_VSTBuh.DB_Folder
 
         }
 
-        //создание таблицы для выбранных товаров
+        //создание таблицы для выбранных в заказ товаров 
         void CreatedataTableSelectedGoods()
         {
             App.con = new SqlConnection(@"Data Source=localhost;Initial Catalog=VST;Integrated Security=True");
@@ -327,15 +341,21 @@ namespace Exam_VSTBuh.DB_Folder
             
             if (dtNormalSelectView.Rows.Count==0)
             {
-                dtNormalSelectView = new DataTable();
-                dtNormalSelectView.Columns.Add(new DataColumn("Имя товара"));
-                dtNormalSelectView.Columns["Имя товара"].DataType = System.Type.GetType("System.String");
+                try
+                {
+                    dtNormalSelectView = new DataTable();
+                    dtNormalSelectView.Columns.Add(new DataColumn("Имя товара"));
+                    dtNormalSelectView.Columns["Имя товара"].DataType = System.Type.GetType("System.String");
 
-                dtNormalSelectView.Columns.Add(new DataColumn("Количество"));
-                dtNormalSelectView.Columns["Количество"].DataType = System.Type.GetType(dataTableSelectedGoods.Rows[0]["Quantity"].GetType().ToString());
+                    dtNormalSelectView.Columns.Add(new DataColumn("Количество"));
+                    dtNormalSelectView.Columns["Количество"].DataType = System.Type.GetType(dataTableSelectedGoods.Rows[0]["Quantity"].GetType().ToString());
 
-                dtNormalSelectView.Columns.Add(new DataColumn("Цена"));
-                dtNormalSelectView.Columns["Цена"].DataType = System.Type.GetType(dataTableSelectedGoods.Rows[0]["Price"].GetType().ToString());
+                    dtNormalSelectView.Columns.Add(new DataColumn("Цена"));
+                    dtNormalSelectView.Columns["Цена"].DataType = System.Type.GetType(dataTableSelectedGoods.Rows[0]["Price"].GetType().ToString());
+               
+                }
+                catch (Exception)
+                {}
             }
             else
             {
@@ -388,25 +408,129 @@ namespace Exam_VSTBuh.DB_Folder
         //добавить товар - в новом окне
         private void AddBut_Click(object sender, RoutedEventArgs e)
         {
+            //создание соответсвующих делегатов
+            
+                DelegatesData.RefreshGoodTableHandler = new DelegatesData.RefreshGoodTable(goodTableCreate);
+                DelegatesData.RefreshNonGoodTableHandler = new DelegatesData.RefreshNonGoodTable(NonGoodTableCreation);
+	            
 
+            switch (tableName)
+            {
+                case "Warehouses":
+                    AddingWindows.AddWHouse whAdd = new AddingWindows.AddWHouse();
+                    whAdd.ShowDialog();
+                    break;
+                case "Brand":
+                    AddingWindows.AddNonGood NGAdd = new AddingWindows.AddNonGood(tableName, catName);
+                    NGAdd.ShowDialog();
+                    break;
+                case "Good":
+                    AddingWindows.AddGood GoodAdd = new AddingWindows.AddGood(catName, brandName);
+                    GoodAdd.ShowDialog();
+                    break;
+                default:
+                    NGAdd = new AddingWindows.AddNonGood(tableName);
+                    NGAdd.ShowDialog();
+                    break;
+            }
         }
 
         //удалить товар
         private void DelBut_Click(object sender, RoutedEventArgs e)
-        {
+        {   //вытянуть имя удаляемой модели
+           
+           
             DataRowView dRowView = (DataRowView)dataGridView.SelectedItems[0];
             DataRow dRow = dRowView.Row;
-            MessageBox.Show(dRow["Модель"].ToString());
+
+            String name="";
             
-            try
-            {
-                SqlCommand cmd = new SqlCommand("");
-            }
-            catch (Exception)
+            //проверка - товар/не товар
+            if (goodLevel==2)//если товар
+                name=dRow["Модель"].ToString();
+            else//не товар
+                name = dRow[0].ToString();
+
+            //для товара - проверить есть ли такая модель в выбранных товарах
+            bool isCheck = false;//товар присутсвует в dgNormalSelectView 
+            int No = 0;//номер повторяющейся строки
+            if (goodLevel == 2)
             {
                 
-                throw;
+                for (int i = 0; i < dtNormalSelectView.Rows.Count; i++)
+                {
+                    if (dtNormalSelectView.Rows[i][0].ToString() == name)
+                    {
+                        isCheck = true;
+                        No = i;
+                        break;
+                    }
+                }
             }
+
+            //удалить элемент из бд
+            try
+            {
+               
+                    App.con.Open();
+                    DataSet ds = new DataSet();
+                    SqlCommand cmd;    
+                if (goodLevel==2)//для товаров
+                    cmd= new SqlCommand(string.Format("DELETE FROM {0} WHERE Good_Name=@Name", tableName), App.con);
+                
+                else//для категорий - создание нового подключения для вытягивания имени столбца
+                {
+                    //вытягивание имени столбца
+                     ds = new DataSet();
+                    SqlDataAdapter adapter = new SqlDataAdapter(string.Format("SELECT * FROM {0}", tableName), App.con.ConnectionString);
+                    adapter.Fill(ds);
+                    //команда удаления
+                    cmd= new SqlCommand(string.Format("DELETE FROM {0} WHERE {1}=@Name", tableName, ds.Tables[0].Columns[1].ColumnName), App.con); 
+                }
+
+                    cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50).Value = name;
+                    cmd.ExecuteNonQuery();
+                    
+               
+            }
+            catch (Exception exc)
+            {
+                App.con.Close();
+                MessageBox.Show(exc.Message);
+            }
+            
+            //обновление dataGridView - для товаров
+            //имя бренда для goodTableCreate
+            if (goodLevel==2)
+            {
+            string brandname = dRow["Марка"].ToString();
+            goodTableCreate("Good", brandname);
+            }
+            else//для не товара
+	        {
+                if (goodLevel == 1)//для марки
+                {
+                    goodTableCreate("Brand", catName);
+                }
+                else
+                {
+                    NonGoodTableCreation();
+                }
+	        }
+            
+                //обновление datagridselect- для товара
+            if (goodLevel==2)
+            {
+                if(No!=0)
+                dataTableSelectedGoods.Rows.RemoveAt(No);
+                dtNormalSelectViewCreate();
+            }
+            App.con.Close();
+        }
+
+        private void ChangeBut_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

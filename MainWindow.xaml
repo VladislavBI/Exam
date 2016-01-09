@@ -13,8 +13,9 @@
                 <MenuItem Header="Выход" />
             </MenuItem>
             <MenuItem Header="Edit" ></MenuItem>
-            <MenuItem Header="Справочник"   >
+            <MenuItem Header="Справочник" Click="MenuItem_Click_2"   >
                 <MenuItem Header="Продавцы" Click="MenuItem_Click"/>
+                <MenuItem Header="Бренды" Click="MenuItem_Click_4"  />
                 <MenuItem Header="Товары" Click="MenuItem_Click_3" >
                 </MenuItem>
                 <MenuItem Header="Склады" Click="MenuItem_Click_1" />

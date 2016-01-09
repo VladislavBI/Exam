@@ -14,7 +14,7 @@ namespace Exam_VSTBuh
     /// </summary>
     public partial class App : Application
     {
-        public static SqlConnection con;
+        public static SqlConnection con=new SqlConnection(@"Data Source=vladp;Initial Catalog=VST;Integrated Security=True");
         public static DataSet addingDataSet;
     }
 }

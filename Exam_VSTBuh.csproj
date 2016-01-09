@@ -56,7 +56,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="DB_Folder\AddNonGood.xaml">
+    <Page Include="AddingWindows\AddGood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddingWindows\AddNonGood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddingWindows\AddWHouse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,12 +84,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddingWindows\AddGood.xaml.cs">
+      <DependentUpon>AddGood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddingWindows\AddNonGood.xaml.cs">
+      <DependentUpon>AddNonGood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddingWindows\AddWHouse.xaml.cs">
+      <DependentUpon>AddWHouse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DB_Folder\AddNonGood.xaml.cs">
-      <DependentUpon>AddNonGood.xaml</DependentUpon>
     </Compile>
     <Compile Include="DB_Folder\StatisticWindow.xaml.cs">
       <DependentUpon>StatisticWindow.xaml</DependentUpon>

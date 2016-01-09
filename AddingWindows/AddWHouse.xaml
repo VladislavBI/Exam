@@ -1,0 +1,15 @@
+﻿<Window x:Class="Exam_VSTBuh.AddingWindows.AddWHouse"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           Title="Панель добавления" Height="236" Width="300">
+    <Grid>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="22,147,0,0" VerticalAlignment="Top" Width="96" Height="36" FontSize="18" RenderTransformOrigin="0.385,0.583" Click="Button_Click"/>
+        <Button Content="Отмена" HorizontalAlignment="Right" Margin="0,147,22,0" VerticalAlignment="Top" Width="96" Height="36" FontSize="18" Click="Button_Click_1"/>
+        <TextBlock Name="TBlockGeneralInfo" Margin="0,10,0,0" TextWrapping="Wrap" Text="Добавить склад" VerticalAlignment="Top" Height="31" Width="272" TextAlignment="Center" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Наименование" VerticalAlignment="Top" Height="23" Width="108" FontSize="14"/>
+        <TextBox Name="TBoxName" HorizontalAlignment="Left" Height="23" Margin="123,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" FontSize="14"/>
+        <TextBlock Name="TBlockAddInfo" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="108" FontSize="14" RenderTransformOrigin="0.491,2.9"/>
+        <ComboBox Name="ComboBoxAddInfo" HorizontalAlignment="Left" Margin="123,110,0,0" VerticalAlignment="Top" Width="159" FontSize="14"/>
+
+    </Grid>
+</Window>
