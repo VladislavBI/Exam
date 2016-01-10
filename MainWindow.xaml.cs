@@ -41,8 +41,8 @@ namespace Exam_VSTBuh
 
         private void CreateReport(object sender, RoutedEventArgs e)
         {
-            NewReport NR = new NewReport();
-            NR.Show();
+            NewReport NR = new NewReport(EuroCurTBox.Text, DollarCurTBox.Text);
+            NR.ShowDialog();
         }
         #endregion
 

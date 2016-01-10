@@ -16,5 +16,20 @@ namespace Exam_VSTBuh
     {
         public static SqlConnection con=new SqlConnection(@"Data Source=vladp;Initial Catalog=VST;Integrated Security=True");
         public static DataSet addingDataSet;
+
+        /// <summary>
+        /// Создание нового подключения к базе VST
+        /// </summary>
+        /// <returns>экземпляр SqlConnection, соединен - VST</returns>
+        public static SqlConnection ConnectionToDBCreate()
+        {
+            SqlConnectionStringBuilder builder=new SqlConnectionStringBuilder();
+            builder.DataSource="localhost";
+            builder.InitialCatalog="VST";
+            builder.IntegratedSecurity=true;
+            SqlConnection con = new SqlConnection(builder.ConnectionString);
+            return  con;
+
+        }
     }
 }

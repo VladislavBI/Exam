@@ -123,7 +123,7 @@ namespace Exam_VSTBuh.MainWindow_Sale_Report
             }
             try
             {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Order] ([Order_ID], [Date], [Sum], [Debt], [Internet], [Seller_ID], [Warehouse_ID])" +
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Order] ([Order_ID], [Date], [OrderSum], [Debt], [Internet], [Seller_ID], [Warehouse_ID])" +
                     "VALUES (@Order_ID, @Date, @Sum, @Debt, @Internet, @Seller_ID, @Warehouse_ID)", App.con);
 
             cmd.Parameters.Add("@Order_ID", SqlDbType.Int).Value =Convert.ToInt32(TBlOrderNo.Text);
@@ -134,7 +134,6 @@ namespace Exam_VSTBuh.MainWindow_Sale_Report
             
                 SqlCommand WHGetCmd = new SqlCommand("SELECT Warehouse_ID FROM Warehouses WHERE Name=@Name", App.con);
                 WHGetCmd.Parameters.Add("@Name", SqlDbType.NVarChar, 20).Value = TBlFrom.Text;
-                MessageBox.Show(Convert.ToInt32(WHGetCmd.ExecuteScalar()).ToString());
                 cmd.Parameters.Add("@Seller_ID", SqlDbType.Int).Value = Convert.ToInt32(WHGetCmd.ExecuteScalar());
                 WHGetCmd.Parameters["@Name"].Value = TBlTo.Text;
                 cmd.Parameters.Add("@Warehouse_ID", SqlDbType.Int).Value = Convert.ToInt32(WHGetCmd.ExecuteScalar());
