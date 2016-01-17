@@ -530,7 +530,36 @@ namespace Exam_VSTBuh.DB_Folder
 
         private void ChangeBut_Click(object sender, RoutedEventArgs e)
         {
+            DelegatesData.RefreshGoodTableHandler = new DelegatesData.RefreshGoodTable(goodTableCreate);
+            DelegatesData.RefreshNonGoodTableHandler = new DelegatesData.RefreshNonGoodTable(NonGoodTableCreation);
 
+            DataRowView dRowView = (DataRowView)dataGridView.SelectedItems[0];
+            DataRow dRow = dRowView.Row;
+            int IDSelected=0;
+            
+            using (SqlConnection con = App.ConnectionToDBCreate())
+            {
+                con.Open();
+                SqlCommand cmd;
+                if (tableName!="Good")
+                    cmd = new SqlCommand(string.Format("SELECT {0} FROM {1} WHERE Name='{2}'", App.getIDPool[tableName], tableName, dRow[0]), con);
+                else
+                    cmd = new SqlCommand(string.Format("SELECT {0} FROM {1} WHERE Good_Name='{2}'", App.getIDPool[tableName], tableName, dRow[0]), con);
+                IDSelected = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+
+            switch (tableName)
+            {
+                case "Warehouses":
+                    break;
+                case "Good":
+                    break;
+                default:
+                    ChangeWindow.ChangeNonGood cWind = new ChangeWindow.ChangeNonGood(tableName, IDSelected);
+                    cWind.ShowDialog();
+                    break;
+            }
+             
         }
     }
 }

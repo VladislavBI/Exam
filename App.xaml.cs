@@ -31,5 +31,31 @@ namespace Exam_VSTBuh
             return  con;
 
         }
+
+        /// <summary>
+        /// список названия полей ИД для всех таблиц БД VST
+        /// </summary>
+        public static Dictionary<string, string> getIDPool = new Dictionary<string, string>()
+        {
+            {"Brand", "brand_ID"}, 
+            {"Category", "category_ID"},
+            {"Good", "Good_ID"},
+            {"Order", "Order_ID"},
+            {"Sellers", "Seller_ID"},
+            {"Warehouses", "Warehouse_ID"}
+        };
+        /// <summary>
+        /// переводит англ имена баз данных в русские
+        /// </summary>
+        public static Dictionary<string, string> engToRusDBNameTranslator =
+            new Dictionary<string, string>()
+            {
+            {"Brand", "Модель"}, 
+            {"Category", "Категория"},
+            {"Good", "Товар"},
+            {"Order", "Заказ"},
+            {"Sellers", "Продавцы"},
+            {"Warehouses", "Склады"}
+            };
     }
 }

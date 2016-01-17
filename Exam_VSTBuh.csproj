@@ -68,6 +68,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ChangeWindow\ChangeGood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeWindow\ChangeNonGood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeWindow\ChangeWHouse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DB_Folder\StatisticWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +108,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChangeWindow\ChangeGood.xaml.cs">
+      <DependentUpon>ChangeGood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeWindow\ChangeNonGood.xaml.cs">
+      <DependentUpon>ChangeNonGood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeWindow\ChangeWHouse.xaml.cs">
+      <DependentUpon>ChangeWHouse.xaml</DependentUpon>
     </Compile>
     <Compile Include="DB_Folder\StatisticWindow.xaml.cs">
       <DependentUpon>StatisticWindow.xaml</DependentUpon>

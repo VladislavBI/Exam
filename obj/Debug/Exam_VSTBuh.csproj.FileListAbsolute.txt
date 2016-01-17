@@ -21,3 +21,15 @@ C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\
 C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\ProgStart\WaitWindow.g.cs
 C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\DB_Folder\StatisticWindow.baml
 C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\DB_Folder\StatisticWindow.g.cs
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\AddingWindows\AddGood.baml
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\AddingWindows\AddNonGood.baml
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\AddingWindows\AddWHouse.baml
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\AddingWindows\AddGood.g.cs
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\AddingWindows\AddNonGood.g.cs
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\AddingWindows\AddWHouse.g.cs
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\ChangeWindow\ChangeGood.baml
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\ChangeWindow\ChangeNonGood.baml
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\ChangeWindow\ChangeWHouse.baml
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\ChangeWindow\ChangeGood.g.cs
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\ChangeWindow\ChangeNonGood.g.cs
+C:\Users\vlad\documents\visual studio 2013\Projects\Exam_VSTBuh\Exam_VSTBuh\obj\Debug\ChangeWindow\ChangeWHouse.g.cs
