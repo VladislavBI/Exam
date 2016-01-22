@@ -107,18 +107,18 @@ namespace Exam_VSTBuh.AddingWindows
                     con.Open();
                     SqlCommand cmd = new SqlCommand("SELECT category_ID FROM Category WHERE Name=@Name", con);
                     cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50).Value = ComboBoxCategory.SelectedValue;
-                    int catID = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+                    int catID = Convert.ToInt32(cmd.ExecuteScalar());
 
                     cmd = new SqlCommand("SELECT brand_ID FROM Brand WHERE Name=@Name", con);
-                    cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50).Value = ComboBoxCategory.SelectedValue;
-                    int brandID = Convert.ToInt32(cmd.ExecuteScalar()) + 1; 
+                    cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50).Value = ComboBoxBrand.SelectedValue;
+                    int brandID = Convert.ToInt32(cmd.ExecuteScalar()); 
 
                     
                     SqlCommand goodInsertCmd = new SqlCommand("INSERT INTO [dbo].[Good] ([category_ID],[Good_Name],[Price],[brand_ID]) VALUES(@catID, @gName, @Price, @brandID)", con);
-                    goodInsertCmd.Parameters.Add("@catID", SqlDbType.Int).Value = brandID;
+                    goodInsertCmd.Parameters.Add("@catID", SqlDbType.Int).Value = catID;
                     goodInsertCmd.Parameters.Add("@gName", SqlDbType.NVarChar, 50).Value = TBoxGoodName.Text;
                     goodInsertCmd.Parameters.Add("@Price", SqlDbType.Money).Value = Convert.ToDecimal(TBoxGoodPrice.Text);
-                    goodInsertCmd.Parameters.Add("@brandID", SqlDbType.Int).Value =catID;
+                    goodInsertCmd.Parameters.Add("@brandID", SqlDbType.Int).Value = brandID;
 
                     goodInsertCmd.ExecuteNonQuery();
                 }

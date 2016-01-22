@@ -1,8 +1,22 @@
 ﻿<Window x:Class="Exam_VSTBuh.ChangeWindow.ChangeGood"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ChangeGood" Height="300" Width="300">
+        Title="ChangeGood" Height="303" Width="438">
+    
     <Grid>
-        
+        <Button Name="ButAdd" Content="Изменить" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="75" Height="36" Click="ButAdd_Click"/>
+        <Button Name="ButCancel" Content="Отмена" HorizontalAlignment="Left" Margin="345,207,0,0" VerticalAlignment="Top" Width="75" Height="36" Click="ButCancel_Click"/>
+        <TextBlock Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" TextAlignment="Center" FontSize="20"><Run Language="ru-ru" Text="Изменить"/><Run Text=" товар"/></TextBlock>
+        <TextBlock Name="TBlockCategory" HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" Text="Категория" VerticalAlignment="Top" Width="87"/>
+        <TextBlock Name="TBlockBrand" HorizontalAlignment="Left" Margin="312,46,0,0" TextWrapping="Wrap" Text="Марка" VerticalAlignment="Top" Width="87"/>
+        <ComboBox Name="ComboBoxCategory" HorizontalAlignment="Left" Margin="0,67,0,0" VerticalAlignment="Top" Width="180"/>
+        <ComboBox Name="ComboBoxBrand" HorizontalAlignment="Left" Margin="240,67,0,0" VerticalAlignment="Top" Width="180"/>
+        <TextBlock Margin="10,143,102,0" TextWrapping="Wrap" Text="Имя товара" VerticalAlignment="Top" Height="31" TextAlignment="Center" FontSize="20"/>
+        <TextBlock Margin="333,143,10,0" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top" Height="31" TextAlignment="Center" FontSize="20"/>
+        <TextBox Name="TextBoxGoodName" HorizontalAlignment="Left" Height="23" Margin="0,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328"/>
+        <TextBox Name="TextBoxGoodPrice" HorizontalAlignment="Left" Height="23" Margin="333,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="87" LostFocus="TextBoxGoodPrice_LostFocus"/>
+        <Button x:Name="ButNewCat" Content="Создать новую категорию" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="170" Height="18" Click="ButNewCat_Click"/>
+        <Button x:Name="ButNewBrand" Content="Создать новую марку" HorizontalAlignment="Left" Margin="240,94,0,0" VerticalAlignment="Top" Width="180" Height="18" Click="ButNewBrand_Click"/>
+
     </Grid>
 </Window>

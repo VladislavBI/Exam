@@ -438,8 +438,10 @@ namespace Exam_VSTBuh.DB_Folder
         //удалить товар
         private void DelBut_Click(object sender, RoutedEventArgs e)
         {   //вытянуть имя удаляемой модели
-           
-           
+
+            if (dataGridView.SelectedIndex == -1)
+                dataGridView.SelectedIndex = 0;
+
             DataRowView dRowView = (DataRowView)dataGridView.SelectedItems[0];
             DataRow dRow = dRowView.Row;
 
@@ -533,6 +535,8 @@ namespace Exam_VSTBuh.DB_Folder
             DelegatesData.RefreshGoodTableHandler = new DelegatesData.RefreshGoodTable(goodTableCreate);
             DelegatesData.RefreshNonGoodTableHandler = new DelegatesData.RefreshNonGoodTable(NonGoodTableCreation);
 
+            if (dataGridView.SelectedIndex == -1)
+                dataGridView.SelectedIndex = 0;
             DataRowView dRowView = (DataRowView)dataGridView.SelectedItems[0];
             DataRow dRow = dRowView.Row;
             int IDSelected=0;
@@ -544,15 +548,19 @@ namespace Exam_VSTBuh.DB_Folder
                 if (tableName!="Good")
                     cmd = new SqlCommand(string.Format("SELECT {0} FROM {1} WHERE Name='{2}'", App.getIDPool[tableName], tableName, dRow[0]), con);
                 else
-                    cmd = new SqlCommand(string.Format("SELECT {0} FROM {1} WHERE Good_Name='{2}'", App.getIDPool[tableName], tableName, dRow[0]), con);
+                    cmd = new SqlCommand(string.Format("SELECT {0} FROM {1} WHERE Good_Name='{2}'", App.getIDPool[tableName], tableName, dRow[2]), con);
                 IDSelected = Convert.ToInt32(cmd.ExecuteScalar());
             }
 
             switch (tableName)
             {
                 case "Warehouses":
+                    ChangeWindow.ChangeWHouse whAdd = new ChangeWindow.ChangeWHouse(IDSelected);
+                    whAdd.ShowDialog();
                     break;
                 case "Good":
+                    ChangeWindow.ChangeGood GoodAdd = new ChangeWindow.ChangeGood(IDSelected, catName, brandName);
+                    GoodAdd.ShowDialog();
                     break;
                 default:
                     ChangeWindow.ChangeNonGood cWind = new ChangeWindow.ChangeNonGood(tableName, IDSelected);
